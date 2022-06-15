@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 
@@ -15,6 +15,10 @@ import './App.css';
 const App = () => {
 
   const [counter, setCounter] = useState(0);
+  
+  useEffect(() => {
+    alert("You have changed the counter to" + counter)
+  }, [counter])
   // const name = "Jaspreet Singh";
   // const isNameShowing = false;
   return (
@@ -28,6 +32,7 @@ const App = () => {
     // </div>
     <div className="App">
      <button onClick={() => setCounter( (prevCount) => prevCount - 1)}>-</button>
+     <button onClick={() => setCounter( (prevCount) => prevCount = 0)}>Reset</button>
      <h1>{counter}</h1>
      <button onClick={() => setCounter( (prevCount) => prevCount + 1)} >+</button>
       
